@@ -72,25 +72,7 @@ function formatNumber(value: number) {
   return Number.isInteger(value) ? value.toString() : value.toFixed(1);
 }
 
-function getLogTitle(date: DateTime) {
-  if (date.hasSame(DateTime.local(), "day")) {
-    return "Today's log";
-  }
-
-  return `${date.toLocaleString({ month: "short", day: "numeric" })} log`;
-}
-
-function getModalTitle(date: DateTime) {
-  if (date.hasSame(DateTime.local(), "day")) {
-    return "Today's Log";
-  }
-
-  return `Log for ${date.toLocaleString({
-    weekday: "short",
-    month: "short",
-    day: "numeric",
-  })}`;
-}
+const FOOD_LOG_TITLE = "Recent items";
 
 function includesId(ids: number[], id: number) {
   return ids.includes(id);
@@ -283,6 +265,24 @@ function FoodLogRows({
   ));
 }
 
+function EmptyFoodLogState() {
+  return (
+    <View className="items-center px-4 pb-1 pt-1">
+      <Ionicons
+        color={mobileTheme.text.muted}
+        name="file-tray-outline"
+        size={46}
+      />
+      <Text className="mt-3 text-center text-2xl font-bold leading-8 text-text-primary">
+        Nothing logged yet
+      </Text>
+      <Text className="mt-1 text-center text-base leading-6 text-text-muted">
+        Meals and scans will land here.
+      </Text>
+    </View>
+  );
+}
+
 export function DailyFoodLogCard({
   entries,
   isLoading,
@@ -298,7 +298,7 @@ export function DailyFoodLogCard({
   const displayLogs = isLoading ? [] : logs;
   const visibleLogs = displayLogs.slice(0, 3);
   const hasVisibleLogs = visibleLogs.length > 0;
-  const title = getLogTitle(selectedDate);
+  const title = FOOD_LOG_TITLE;
 
   const handleDelete = async (entry: DailyFoodLogEntry) => {
     if (includesId(deletingLogIds, entry.id)) {
@@ -383,11 +383,7 @@ export function DailyFoodLogCard({
             </Pressable>
           ) : null}
         </View>
-        {!isLoading && displayLogs.length === 0 ? (
-          <Text className="mt-3 text-base font-semibold text-text-primary">
-            Nothing logged yet
-          </Text>
-        ) : null}
+        {!isLoading && displayLogs.length === 0 ? <EmptyFoodLogState /> : null}
 
         {isLoading ? (
           <View className="items-center justify-center py-8">
@@ -407,7 +403,7 @@ export function DailyFoodLogCard({
       <BottomSheetModal
         onClose={() => setIsLogSheetVisible(false)}
         size="foodLog"
-        title={getModalTitle(selectedDate)}
+        title={FOOD_LOG_TITLE}
         visible={isLogSheetVisible}
       >
         <ScrollView
