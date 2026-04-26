@@ -11,7 +11,7 @@ import { glassTints, mobileTheme } from "@/lib/theme";
 
 const TAB_BAR_HEIGHT = 56;
 const TAB_ACTION_GAP = 105;
-const MIN_BOTTOM_INSET = 10;
+const MIN_BOTTOM_INSET = 6;
 const CONTENT_GAP = 12;
 
 export function getBottomTabBarContentPadding(bottomInset: number) {

@@ -78,7 +78,7 @@ export function WeekSelector({
   };
 
   return (
-    <View className="mb-2">
+    <View className="mb-1">
       <FlatList
         key={weekOffset.toString()}
         data={weekPages}

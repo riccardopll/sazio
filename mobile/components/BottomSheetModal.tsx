@@ -66,7 +66,7 @@ export function BottomSheetModal({
         />
         <KeyboardAvoidingView behavior="padding" className="w-full justify-end">
           <View className={cn(sheetStyles.container, sheetClassName)}>
-            <View className="px-5 pb-2 pt-2">
+            <View className="px-4 pb-2 pt-2">
               <View className="items-center">
                 <View className="h-1 w-12 rounded-full bg-border-strong" />
               </View>

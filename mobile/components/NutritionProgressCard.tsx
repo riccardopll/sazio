@@ -268,7 +268,7 @@ export function NutritionProgressCard({
         pagingEnabled
         showsHorizontalScrollIndicator={false}
       >
-        <View className="gap-3" style={pageStyle}>
+        <View className="gap-2" style={pageStyle}>
           <Card contentClassName="px-4 py-4">
             <View className="flex-row items-start justify-between gap-3">
               <View className="min-h-[124px] flex-1 justify-between">

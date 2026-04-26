@@ -51,7 +51,7 @@ export default function SignIn() {
 
   return (
     <SafeAreaView className={screenStyles.appRoot}>
-      <View className="flex-1 justify-center p-5">
+      <View className="flex-1 justify-center px-4 py-5">
         <Text className="text-xs uppercase tracking-[1.6px] text-text-muted">
           Sazio
         </Text>

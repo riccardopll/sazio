@@ -13,7 +13,7 @@ import { ScreenHeader } from "@/components/ScreenHeader";
 import { useState, useMemo } from "react";
 import { DateTime } from "luxon";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { screenStyles } from "@/lib/styles";
+import { cn, screenStyles } from "@/lib/styles";
 
 function getWeekStart(date: DateTime) {
   return date.startOf("week");
@@ -95,7 +95,7 @@ export default function Dashboard() {
       />
       <ScrollView
         className="flex-1"
-        contentContainerClassName={screenStyles.content}
+        contentContainerClassName={cn(screenStyles.content, "pt-0.5")}
         contentContainerStyle={{ paddingBottom: bottomContentPadding }}
       >
         <View className={screenStyles.cardGap}>

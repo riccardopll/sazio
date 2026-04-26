@@ -13,10 +13,9 @@ import {
 } from "react-native";
 import Swipeable from "react-native-gesture-handler/ReanimatedSwipeable";
 import { BottomSheetModal } from "@/components/BottomSheetModal";
-import { cn, nutritionStyles, textStyles } from "@/lib/styles";
+import { cn, nutritionStyles, radiusStyles, textStyles } from "@/lib/styles";
 import { mobileTheme } from "@/lib/theme";
 import { useTRPC } from "@/lib/trpc";
-import { Card } from "./Card";
 
 interface DailyFoodLogEntry {
   id: number;
@@ -72,7 +71,7 @@ function formatNumber(value: number) {
   return Number.isInteger(value) ? value.toString() : value.toFixed(1);
 }
 
-const FOOD_LOG_TITLE = "Recent items";
+const RECENT_FOOD_LOG_TITLE = "Recent items";
 
 function includesId(ids: number[], id: number) {
   return ids.includes(id);
@@ -131,12 +130,10 @@ function subtractEntryFromWeek(
 
 function FoodLogRow({
   entry,
-  isLast,
   onDelete,
   timezone,
 }: {
   entry: DailyFoodLogEntry;
-  isLast: boolean;
   onDelete: (entry: DailyFoodLogEntry) => void;
   timezone: string;
 }) {
@@ -151,97 +148,107 @@ function FoodLogRow({
   );
 
   return (
-    <Swipeable
-      leftThreshold={42}
-      overshootLeft={false}
-      renderLeftActions={renderDeleteAction}
-      onSwipeableOpen={() => onDelete(entry)}
+    <View
+      className={cn(
+        "overflow-hidden border border-border-strong bg-surface-card shadow-lg shadow-black/30",
+        radiusStyles.card,
+      )}
     >
-      <View
-        className={cn(
-          "flex-row items-center bg-surface-card py-2 pl-1",
-          !isLast && "border-b border-border-subtle",
-        )}
+      <Swipeable
+        leftThreshold={42}
+        overshootLeft={false}
+        renderLeftActions={renderDeleteAction}
+        onSwipeableOpen={() => onDelete(entry)}
       >
-        <View className="w-12 items-center justify-center">
-          <View
-            className={cn(
-              "h-9 w-9 items-center justify-center rounded-full",
-              macroStyles.dot,
-            )}
-          >
-            <MaterialCommunityIcons
-              color="#FFFFFF"
-              name={macroIcon.icon}
-              size={22}
-            />
-          </View>
-        </View>
-        <View className="min-w-0 flex-1 flex-row items-center gap-2 pl-2">
-          <View className="min-w-0 flex-1">
-            <View className="flex-row items-center gap-3">
-              <Text
-                className="min-w-0 flex-1 text-[15px] font-semibold leading-5 text-text-primary"
-                numberOfLines={1}
-              >
-                {entry.foodName}
-              </Text>
-              <Text
-                className="shrink-0 text-right text-[15px] font-semibold leading-5 text-text-primary"
-                numberOfLines={1}
-              >
-                {formatNumber(entry.calories)} kcal
-              </Text>
+        <View className="min-h-[80px] flex-row items-center bg-surface-card px-3 py-3">
+          <View className="h-12 w-12 items-center justify-center">
+            <View
+              className={cn(
+                "h-12 w-12 items-center justify-center rounded-full",
+                macroStyles.dot,
+              )}
+            >
+              <MaterialCommunityIcons
+                color="#FFFFFF"
+                name={macroIcon.icon}
+                size={26}
+              />
             </View>
-            <View className="mt-1 flex-row items-center gap-3">
-              <View className="min-w-0 flex-1 flex-row items-center gap-3">
-                <View className="flex-row items-center gap-1.5">
-                  <View
-                    className={cn(
-                      nutritionStyles.smallDot,
-                      nutritionStyles.protein.dot,
-                    )}
-                  />
-                  <Text className="text-sm leading-5 text-text-muted">
-                    {formatNumber(entry.protein)}P
-                  </Text>
-                </View>
-                <View className="flex-row items-center gap-1.5">
-                  <View
-                    className={cn(
-                      nutritionStyles.smallDot,
-                      nutritionStyles.carbs.dot,
-                    )}
-                  />
-                  <Text className="text-sm leading-5 text-text-muted">
-                    {formatNumber(entry.carbs)}C
-                  </Text>
-                </View>
-                <View className="flex-row items-center gap-1.5">
-                  <View
-                    className={cn(
-                      nutritionStyles.smallDot,
-                      nutritionStyles.fat.dot,
-                    )}
-                  />
-                  <Text className="text-sm leading-5 text-text-muted">
-                    {formatNumber(entry.fat)}F
-                  </Text>
-                </View>
+          </View>
+          <View className="min-w-0 flex-1 pl-3">
+            <Text
+              className="text-[18px] font-bold leading-6 text-text-primary"
+              numberOfLines={1}
+            >
+              {entry.foodName}
+            </Text>
+            <View className="mt-2 flex-row items-center gap-5">
+              <View className="flex-row items-center gap-1.5">
+                <View
+                  className={cn(
+                    nutritionStyles.smallDot,
+                    nutritionStyles.protein.dot,
+                  )}
+                />
+                <Text className="text-[14px] leading-5 text-text-secondary">
+                  {formatNumber(entry.protein)}P
+                </Text>
               </View>
-              <Text
-                className="shrink-0 text-right text-sm leading-5 text-text-muted"
-                numberOfLines={1}
-              >
+              <View className="flex-row items-center gap-1.5">
+                <View
+                  className={cn(
+                    nutritionStyles.smallDot,
+                    nutritionStyles.carbs.dot,
+                  )}
+                />
+                <Text className="text-[14px] leading-5 text-text-secondary">
+                  {formatNumber(entry.carbs)}C
+                </Text>
+              </View>
+              <View className="flex-row items-center gap-1.5">
+                <View
+                  className={cn(
+                    nutritionStyles.smallDot,
+                    nutritionStyles.fat.dot,
+                  )}
+                />
+                <Text className="text-[14px] leading-5 text-text-secondary">
+                  {formatNumber(entry.fat)}F
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View className="ml-3 flex-row items-center gap-1.5">
+            <View className="items-end justify-center">
+              <View className="flex-row items-baseline">
+                <Text
+                  className="text-right text-[18px] font-bold leading-7 text-text-primary"
+                  numberOfLines={1}
+                >
+                  {formatNumber(entry.calories)}
+                </Text>
+                <Text
+                  className="text-right text-[15px] leading-6 text-text-secondary"
+                  numberOfLines={1}
+                >
+                  {" kcal"}
+                </Text>
+              </View>
+              <Text className="mt-0.5 text-right text-[13px] leading-5 text-text-secondary">
                 {DateTime.fromMillis(entry.createdAt)
                   .setZone(timezone)
                   .toFormat("HH:mm")}
               </Text>
             </View>
+            <Ionicons
+              color={mobileTheme.text.primary}
+              name="chevron-forward"
+              size={24}
+            />
           </View>
         </View>
-      </View>
-    </Swipeable>
+      </Swipeable>
+    </View>
   );
 }
 
@@ -254,20 +261,23 @@ function FoodLogRows({
   onDelete: (entry: DailyFoodLogEntry) => void;
   timezone: string;
 }) {
-  return entries.map((entry, index) => (
-    <FoodLogRow
-      key={entry.id}
-      entry={entry}
-      isLast={index === entries.length - 1}
-      onDelete={onDelete}
-      timezone={timezone}
-    />
-  ));
+  return (
+    <View className="gap-1.5">
+      {entries.map((entry) => (
+        <FoodLogRow
+          key={entry.id}
+          entry={entry}
+          onDelete={onDelete}
+          timezone={timezone}
+        />
+      ))}
+    </View>
+  );
 }
 
 function EmptyFoodLogState() {
   return (
-    <View className="items-center px-4 pb-1 pt-1">
+    <View className="items-center px-4 pb-1 pt-1 mt-8">
       <Ionicons
         color={mobileTheme.text.muted}
         name="file-tray-outline"
@@ -298,7 +308,8 @@ export function DailyFoodLogCard({
   const displayLogs = isLoading ? [] : logs;
   const visibleLogs = displayLogs.slice(0, 3);
   const hasVisibleLogs = visibleLogs.length > 0;
-  const title = FOOD_LOG_TITLE;
+  const title = RECENT_FOOD_LOG_TITLE;
+  const dailyLogTitle = selectedDate.toFormat("MMM d 'Log'");
 
   const handleDelete = async (entry: DailyFoodLogEntry) => {
     if (includesId(deletingLogIds, entry.id)) {
@@ -357,9 +368,7 @@ export function DailyFoodLogCard({
 
   return (
     <>
-      <Card
-        contentClassName={cn("px-4 pt-4", hasVisibleLogs ? "pb-2" : "pb-4")}
-      >
+      <View className={cn("px-4 pt-1", hasVisibleLogs ? "pb-2" : "pb-4")}>
         <View className="flex-row items-center justify-between gap-4">
           <Text className={cn(textStyles.cardSubtitle, "min-w-0 flex-1")}>
             {title}
@@ -390,7 +399,7 @@ export function DailyFoodLogCard({
             <ActivityIndicator size="small" color={mobileTheme.state.loading} />
           </View>
         ) : !hasVisibleLogs ? null : (
-          <View className="-mx-2 mt-2 overflow-hidden border-t border-border-subtle">
+          <View className="-mx-2 mt-3">
             <FoodLogRows
               entries={visibleLogs}
               onDelete={handleDelete}
@@ -398,12 +407,12 @@ export function DailyFoodLogCard({
             />
           </View>
         )}
-      </Card>
+      </View>
 
       <BottomSheetModal
         onClose={() => setIsLogSheetVisible(false)}
         size="foodLog"
-        title={FOOD_LOG_TITLE}
+        title={dailyLogTitle}
         visible={isLogSheetVisible}
       >
         <ScrollView

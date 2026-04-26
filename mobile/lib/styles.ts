@@ -10,10 +10,10 @@ export function cn(...classes: ClassValue[]) {
 export const screenStyles = {
   appRoot: "flex-1 bg-surface-app",
   centeredAppRoot: "flex-1 items-center justify-center bg-surface-app",
-  content: "px-5",
-  header: "px-5 pb-2 pt-4",
+  content: "px-4",
+  header: "px-4 pb-2 pt-2",
   embeddedHeader: "pb-2 pt-4",
-  scrollContent: "px-5",
+  scrollContent: "px-4",
   cardGap: "gap-3",
 } as const;
 
@@ -30,8 +30,15 @@ export const textStyles = {
   caption: "text-sm text-text-muted",
 } as const;
 
+export const radiusStyles = {
+  card: "rounded-2xl",
+} as const;
+
 export const cardStyles = {
-  base: "overflow-hidden rounded-[20px] border border-border-subtle bg-surface-card shadow-lg shadow-black/40",
+  base: cn(
+    "overflow-hidden border border-border-subtle bg-surface-card shadow-lg shadow-black/40",
+    radiusStyles.card,
+  ),
   content: "p-5",
   row: "flex-row items-center gap-4 px-4 py-4",
 } as const;
