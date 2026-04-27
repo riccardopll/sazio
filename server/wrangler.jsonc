@@ -1,13 +1,13 @@
 {
   "$schema": "../node_modules/wrangler/config-schema.json",
-  "name": "sazio-oss-server",
+  "name": "sazio",
   "main": "src/index.ts",
   "compatibility_date": "2025-11-17",
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "sazio-oss-db",
-      "database_id": "caeb32c0-2c1b-421e-8745-61e727c370eb",
+      "database_name": "sazio-db",
+      "database_id": "d96a6ccd-18ee-4c46-842b-ae9a3e182215",
       "migrations_dir": "drizzle",
     },
   ],

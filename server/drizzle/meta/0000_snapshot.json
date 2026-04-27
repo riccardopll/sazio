@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "9b560b27-7c42-4ace-a2d1-be313a31cab6",
+  "id": "d01a4a00-c3ae-4094-a5f5-2e74a5a2776b",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "food_logs": {
@@ -244,7 +244,7 @@
           "name": "name",
           "type": "text(100)",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false
         },
         "start_at": {

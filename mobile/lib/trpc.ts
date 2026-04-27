@@ -1,4 +1,4 @@
-import type { AppRouter } from "@sazio-oss/shared";
+import type { AppRouter } from "@sazio/shared";
 import { createTRPCContext } from "@trpc/tanstack-react-query";
 
 export const {

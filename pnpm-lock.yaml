@@ -50,7 +50,7 @@ importers:
       '@react-navigation/native':
         specifier: ^7.1.28
         version: 7.1.33(react-native@0.83.6(@babel/core@7.29.0)(@types/react@19.2.14)(bufferutil@4.1.0)(react@19.2.0)(utf-8-validate@6.0.6))(react@19.2.0)
-      '@sazio-oss/shared':
+      '@sazio/shared':
         specifier: workspace:*
         version: link:../shared
       '@tanstack/react-query':
@@ -180,7 +180,7 @@ importers:
       '@clerk/backend':
         specifier: ^2.29.2
         version: 2.33.0(react@19.2.0)
-      '@sazio-oss/shared':
+      '@sazio/shared':
         specifier: workspace:*
         version: link:../shared
       '@trpc/server':

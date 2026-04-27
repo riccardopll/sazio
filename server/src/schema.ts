@@ -1,1 +1,1 @@
-export * from "@sazio-oss/shared/schema";
+export * from "@sazio/shared/schema";

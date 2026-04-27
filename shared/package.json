@@ -1,5 +1,5 @@
 {
-  "name": "@sazio-oss/shared",
+  "name": "@sazio/shared",
   "private": true,
   "type": "module",
   "exports": {

@@ -2,24 +2,24 @@ const { colors } = require("./theme.json");
 
 /** @type {import("expo/config").ExpoConfig} */
 module.exports = {
-  name: "sazio-oss",
-  slug: "sazio-oss",
+  name: "sazio",
+  slug: "sazio",
   version: "1.0.0",
   orientation: "portrait",
-  scheme: "saziooss",
+  scheme: "sazio",
   userInterfaceStyle: "dark",
   splash: {
     backgroundColor: colors.surface.app,
   },
   ios: {
     supportsTablet: true,
-    bundleIdentifier: "com.anonymous.sazio-oss",
+    bundleIdentifier: "com.anonymous.sazio",
   },
   android: {
     adaptiveIcon: {
       backgroundColor: colors.surface.app,
     },
-    package: "com.anonymous.saziooss",
+    package: "com.anonymous.sazio",
   },
   web: {
     bundler: "metro",

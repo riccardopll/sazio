@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { requestId } from "hono/request-id";
-import { appRouter, createDb, type BaseContext } from "@sazio-oss/shared";
+import { appRouter, createDb, type BaseContext } from "@sazio/shared";
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 import { verifyToken } from "@clerk/backend";
 import { log } from "./log";

@@ -36,7 +36,7 @@ CREATE TABLE `goals` (
 	`created_at` integer DEFAULT (strftime('%s', 'now') * 1000) NOT NULL,
 	`updated_at` integer DEFAULT (strftime('%s', 'now') * 1000) NOT NULL,
 	`user_id` text NOT NULL,
-	`name` text(100),
+	`name` text(100) NOT NULL,
 	`start_at` integer NOT NULL,
 	`end_at` integer,
 	`protein_goal` integer NOT NULL,

@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import type { FoodListItem } from "@sazio-oss/shared";
+import type { FoodListItem } from "@sazio/shared";
 import { useTRPC } from "@/lib/trpc";
 import { mobileTheme } from "@/lib/theme";
 import { BottomSheetModal } from "@/components/BottomSheetModal";

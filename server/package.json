@@ -1,21 +1,20 @@
 {
-  "name": "@sazio-oss/server",
+  "name": "@sazio/server",
   "private": true,
   "type": "module",
   "scripts": {
-    "cf:deploy": "wrangler deploy",
-    "db:migrate": "drizzle-kit generate && wrangler d1 migrations apply sazio-oss-db --remote",
-    "db:migrate:local": "drizzle-kit generate && wrangler d1 migrations apply sazio-oss-db",
+    "db:migrate": "drizzle-kit generate && wrangler d1 migrations apply sazio-db --remote",
+    "db:migrate:local": "drizzle-kit generate && wrangler d1 migrations apply sazio-db",
     "db:studio": "drizzle-kit studio",
     "db:studio:local": "drizzle-kit studio --config drizzle.config.local.ts",
     "dev": "wrangler dev",
     "lint": "prettier . --write && pnpx sort-package-json",
-    "test": "vitest --run --passWithNoTests",
+    "test": "vitest --run",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
     "@clerk/backend": "^2.29.2",
-    "@sazio-oss/shared": "workspace:*",
+    "@sazio/shared": "workspace:*",
     "@trpc/server": "^11.12.0",
     "dotenv": "^17.2.3",
     "hono": "^4.11.7"

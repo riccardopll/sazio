@@ -1,6 +1,6 @@
 import { useAuth } from "@clerk/expo";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import type { AppRouter } from "@sazio-oss/shared";
+import type { AppRouter } from "@sazio/shared";
 import { createTRPCClient, httpBatchLink, loggerLink } from "@trpc/client";
 import { useRef, useState } from "react";
 import { env } from "./env";

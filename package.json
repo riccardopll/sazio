@@ -1,5 +1,5 @@
 {
-  "name": "sazio-oss",
+  "name": "sazio",
   "private": true,
   "description": "",
   "keywords": [],
@@ -7,10 +7,12 @@
   "author": "Riccardo Palleschi",
   "type": "module",
   "scripts": {
+    "cf:build": "pnpm --filter @sazio/shared build && pnpm --filter @sazio/server exec wrangler deploy --dry-run --outdir dist",
+    "cf:deploy": "pnpm --filter @sazio/shared build && pnpm --filter @sazio/server exec wrangler deploy",
     "lint": "pnpm -r lint && pnpx sort-package-json",
     "prepare": "husky",
-    "test": "pnpm --filter @sazio-oss/shared build && pnpm -r test",
-    "typecheck": "pnpm --filter @sazio-oss/shared build && pnpm -r typecheck"
+    "test": "pnpm --filter @sazio/shared build && pnpm -r test",
+    "typecheck": "pnpm --filter @sazio/shared build && pnpm -r typecheck"
   },
   "devDependencies": {
     "husky": "^9.1.7",

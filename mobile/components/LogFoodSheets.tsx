@@ -1,4 +1,4 @@
-import type { FoodListItem } from "@sazio-oss/shared";
+import type { FoodListItem } from "@sazio/shared";
 import { useEffect, useState } from "react";
 import {
   FoodCreateSheet,

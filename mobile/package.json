@@ -1,5 +1,5 @@
 {
-  "name": "@sazio-oss/mobile",
+  "name": "@sazio/mobile",
   "private": true,
   "main": "expo-router/entry",
   "scripts": {
@@ -17,7 +17,7 @@
     "@react-navigation/bottom-tabs": "^7.10.1",
     "@react-navigation/elements": "^2.9.10",
     "@react-navigation/native": "^7.1.28",
-    "@sazio-oss/shared": "workspace:*",
+    "@sazio/shared": "workspace:*",
     "@tanstack/react-query": "^5.90.21",
     "@trpc/client": "^11.12.0",
     "@trpc/tanstack-react-query": "^11.12.0",

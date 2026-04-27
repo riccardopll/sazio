@@ -1,8 +1,8 @@
 import { applyD1Migrations, env } from "cloudflare:test";
 import { eq } from "drizzle-orm";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { appRouter, createDb, type BaseContext } from "@sazio-oss/shared";
-import { foodLogs, foods } from "@sazio-oss/shared/schema";
+import { appRouter, createDb, type BaseContext } from "@sazio/shared";
+import { foodLogs, foods } from "@sazio/shared/schema";
 
 type TestDB = BaseContext["db"];
 
