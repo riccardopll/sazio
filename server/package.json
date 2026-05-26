@@ -3,14 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "check": "oxfmt && oxlint --fix && tsc --noEmit -p tsconfig.json",
     "db:migrate": "drizzle-kit generate && wrangler d1 migrations apply sazio-db --remote",
     "db:migrate:local": "drizzle-kit generate && wrangler d1 migrations apply sazio-db",
     "db:studio": "drizzle-kit studio",
     "db:studio:local": "drizzle-kit studio --config drizzle.config.local.ts",
     "dev": "wrangler dev",
-    "lint": "prettier . --write && pnpx sort-package-json",
-    "test": "vitest --run",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "test": "vitest --run"
   },
   "dependencies": {
     "@clerk/backend": "^2.29.2",

@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": [
+    "AGENTS.md",
+    "**/dist/**",
+    "mobile/.expo/**",
+    "mobile/android/**",
+    "mobile/ios/**",
+    "mobile/web-build/**",
+    "node_modules/**",
+    "pnpm-lock.yaml",
+    "server/.wrangler/**"
+  ],
+  "printWidth": 80,
+  "sortPackageJson": {
+    "sortScripts": true
+  },
+  "sortTailwindcss": {
+    "attributes": [
+      "centerClassName",
+      "contentClassName",
+      "contentContainerClassName",
+      "sheetClassName"
+    ],
+    "config": "./mobile/tailwind.config.js",
+    "functions": ["cn"]
+  }
+}

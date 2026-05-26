@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "browser": true,
+    "builtin": true,
+    "node": true,
+    "vitest": true
+  },
+  "globals": {
+    "__DEV__": "readonly"
+  },
+  "ignorePatterns": [
+    "**/dist/**",
+    "mobile/.expo/**",
+    "mobile/android/**",
+    "mobile/ios/**",
+    "mobile/web-build/**",
+    "node_modules/**",
+    "server/.wrangler/**"
+  ],
+  "plugins": [
+    "typescript",
+    "unicorn",
+    "oxc",
+    "import",
+    "react",
+    "vitest",
+    "promise"
+  ]
+}

@@ -1,6 +1,9 @@
 {
   "name": "@sazio/shared",
   "private": true,
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "exports": {
     ".": {
@@ -16,13 +19,9 @@
       "default": "./dist/schema.js"
     }
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "lint": "prettier . --write && pnpx sort-package-json",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "check": "oxfmt && oxlint --fix && tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
     "@trpc/server": "^11.12.0",

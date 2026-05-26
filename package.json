@@ -7,22 +7,21 @@
   "author": "Riccardo Palleschi",
   "type": "module",
   "scripts": {
-    "cf:build": "pnpm --filter @sazio/shared build && pnpm --filter @sazio/server exec wrangler deploy --dry-run --outdir dist",
-    "cf:deploy": "pnpm --filter @sazio/shared build && pnpm --filter @sazio/server exec wrangler deploy",
-    "lint": "pnpm -r lint && pnpx sort-package-json",
+    "check": "pnpm -r check",
+    "deploy": "pnpm --filter @sazio/shared build && pnpm --filter @sazio/server exec wrangler deploy",
     "prepare": "husky",
-    "test": "pnpm --filter @sazio/shared build && pnpm -r test",
-    "typecheck": "pnpm --filter @sazio/shared build && pnpm -r typecheck"
+    "test": "pnpm --filter @sazio/shared build && pnpm -r test"
   },
   "devDependencies": {
     "husky": "^9.1.7",
-    "prettier": "^3.8.1",
+    "oxfmt": "^0.51.0",
+    "oxlint": "^1.66.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },
-  "packageManager": "pnpm@10.32.1",
   "engines": {
-    "node": ">=20.0.0",
-    "pnpm": ">=10.0.0"
-  }
+    "node": ">=24.0.0",
+    "pnpm": ">=11.0.0"
+  },
+  "packageManager": "pnpm@11.3.0"
 }

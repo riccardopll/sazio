@@ -2,3 +2,4 @@ packages:
   - mobile
   - server
   - shared
+nodeLinker: hoisted

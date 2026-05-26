@@ -3,9 +3,8 @@
   "private": true,
   "main": "expo-router/entry",
   "scripts": {
-    "ios": "expo run:ios",
-    "lint": "expo lint && prettier . --write && pnpx sort-package-json",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "check": "oxfmt && oxlint --fix && tsc --noEmit -p tsconfig.json",
+    "ios": "expo run:ios"
   },
   "dependencies": {
     "@clerk/expo": "^3.1.0",
@@ -54,10 +53,6 @@
     "@babel/core": "^7.28.5",
     "@types/react": "~19.2.14",
     "babel-plugin-react-compiler": "19.0.0-beta-af1b7da-20250417",
-    "eslint": "^9.39.2",
-    "eslint-config-expo": "~55.0.0",
-    "eslint-plugin-react-compiler": "19.1.0-rc.2",
-    "prettier-plugin-tailwindcss": "^0.5.14",
     "react-native-svg-transformer": "^1.5.3",
     "tailwindcss": "^3.4.19"
   }

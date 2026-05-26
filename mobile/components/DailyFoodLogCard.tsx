@@ -277,7 +277,7 @@ function FoodLogRows({
 
 function EmptyFoodLogState() {
   return (
-    <View className="items-center px-4 pb-1 pt-1 mt-8">
+    <View className="mt-8 items-center px-4 pb-1 pt-1">
       <Ionicons
         color={mobileTheme.text.muted}
         name="file-tray-outline"
